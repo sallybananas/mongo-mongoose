@@ -41,25 +41,26 @@
         #articles {
           display: inline-block;
           overflow: auto;
-          width: 60%;
-          height: 700px;
+          width: 80%;
+          height: 150px;
         }
         #notes {
-          float: right;
-          width: 30%;
+          float: ;
+          width: 80%;
         }
         textarea, input {
-          display: block;
-          width: 100%;
-          background-color: #FCF5C7;
+          display: inline-block;
+          width: 80%;
+          background-color:lightgray;
         }
         input {
-          height: 36px;
-          font-size: 24px;
+          height: 150px;
+          font-size: 12px;
         }
         textarea {
-          height: 200px;
-          font-size: 18px;
+          height: auto;
+          font-size: 12px;
+          width: 340px;
         }
     </style>
   <!-- FullStory Code Snipit -->
@@ -141,19 +142,13 @@
                       <img class="activator" src="./assets/images/SLC.gif">
                   </div>
                   <div class="card-content-landing" align="center">
-                      <span class="welcome"><h5 align="center">Local Utah Business & Job News</h5></span>
+                      <span class="welcome"><h5 align="center">Local Utah Business & Job News</h5></span><p>⬇︎ Recent articles from utahbusiness.com ⬇︎</p>
                       <hr>
-                      <p>Recent articles from utahbusiness.com</p>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
+                      <div id="articles"></div>
                       <br>
                       <hr>
-                      <p>Click on an article title above to leave comments about it below</p>
-                      <br>
+                      <p>⬆︎ Click on an article title above to leave comments below ⬇︎</p>
+                      <div id="notes"></div>
                       <br>
                       <!-- <img class="landing-logo" src="./assets/images/crowdhirelogos/crwdhirelogo1.jpg" width="80%" height""> -->
                   </div>
@@ -211,7 +206,7 @@
       <script src="./assets/js/job.js"></script>
       <script src="./assets/js/form.js"></script>
       <script src="./assets/js/index.js"></script>
-  
+      <script src="app.js"></script>
       <script>
           $("document").ready(function(){
               $(".button-collapse").sideNav();
