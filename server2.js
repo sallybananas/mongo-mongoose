@@ -30,6 +30,8 @@ request("https://utahbusiness.com/news/", function(error, response, html) {
       title: articletitle,
       link: link,
     });
+    
+    
   });
 
   // Log the results once you've looped through each of the elements found with cheerio
