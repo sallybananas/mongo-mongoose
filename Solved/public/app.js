@@ -32,12 +32,21 @@ $(document).on("click", "p", function() {
       // A button to submit a new note, with the id of the article saved to it
       $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
 
+      $("#notes").append("<div data-id='" + data._id + "' id='prevNotes'></div>");
+
+
       // If there's a note in the article
       if (data.note) {
-        // Place the title of the note in the title input
-        $("#titleinput").val(data.note.title);
-        // Place the body of the note in the body textarea
-        $("#bodyinput").val(data.note.body);
+        for(var i = 0; i < data.note.length; i++){
+          var noteDiv = $("<div>")
+          // Place the title of the note in the title input
+          noteDiv.append(`<div align='right'><b id='remove' data-noteId="${data.note[i]._id}">X</b></div>`);
+          noteDiv.append(`<div><b>${data.note[i].title}</b></div>`);
+          // Place the body of the note in the body textarea
+          noteDiv.append(`<div align='left'>${data.note[i].body}</div>`)
+          noteDiv.append(`<hr>`)
+          $("#prevNotes").append(noteDiv);
+        }
       }
     });
 });
@@ -70,3 +79,8 @@ $(document).on("click", "#savenote", function() {
   $("#titleinput").val("");
   $("#bodyinput").val("");
 });
+
+$(document).on("click", "#remove", function() {
+  console.log("the x marks the spot");
+  console.log($(this).attr("data-noteId"));
+})
